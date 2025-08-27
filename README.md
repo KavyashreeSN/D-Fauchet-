@@ -6,9 +6,12 @@ It demonstrates how to create, deploy, and interact with a basic token canister 
 ---
 
 ## 🚀 Features
-- Create your own token on the Internet Computer
-- Mint, transfer, and check balances
-- Simple frontend connected to the deployed canisters
+-- Decentralized Faucet – Built fully on the Internet Computer using canisters.
+-- Token Distribution – Automatically mints and sends tokens for testing dApps.
+-- On-Chain Smart Contract – Secure, transparent, and tamper-proof.
+-- Frontend + Backend – Complete stack with a React-based frontend and Motoko backend.
+-- Easy Integration – Developers can adapt the faucet logic for their own token projects.
+-- Lightweight & Developer-Friendly – Simple setup, fast deployment, and minimal overhead.
 
 ---
 
