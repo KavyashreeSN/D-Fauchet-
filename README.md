@@ -1,96 +1,60 @@
-# Check your Balance
+# 💰 Token Project (Motoko on Internet Computer)
 
-1. Find out your principal id:
+This is a simple **token project** built using the Internet Computer (IC) and the **Motoko** programming language.  
+It demonstrates how to create, deploy, and interact with a basic token canister on the IC.
 
-```
-dfx identity get-principal
-```
+---
 
-2. Save it somewhere.
+## 🚀 Features
+- Create your own token on the Internet Computer
+- Mint, transfer, and check balances
+- Simple frontend connected to the deployed canisters
 
-e.g. My principal id is: blah-blah-blah
+---
 
-3. Format and store it in a command line variable:
+## 🛠️ Getting Started
 
-```
-OWNER_PUBLIC_KEY="principal \"$( \dfx identity get-principal )\""
-```
+### 1. Clone this repository
+```bash
+git clone https://github.com/<your-username>/<repo-name>.git
+cd <repo-name>
 
-4. Check that step 3 worked by printing it out:
 
-```
-echo $OWNER_PUBLIC_KEY
-```
+Install DFX (Internet Computer SDK):
 
-5. Check the owner's balance:
+Follow the official guide:
+👉 https://internetcomputer.org/docs/current/developer-docs/getting-started/install/
 
-```
-dfx canister call token balanceOf "( $OWNER_PUBLIC_KEY )"
-```
 
-# Charge the Canister
+Verify installation:
 
-1. Check canister ID:
+dfx --version
 
-```
+Start the local replica
+dfx start --background
+
+Deploy the canisters
+dfx deploy
+
+After deployment, you will get your canister IDs for:
+token , token_assets
+
+Check them with:
+
 dfx canister id token
-```
+dfx canister id token_assets
 
-2. Save canister ID into a command line variable:
+Update the frontend :
 
-```
-CANISTER_PUBLIC_KEY="principal \"$( \dfx canister id token )\""
-```
+Replace the default canister IDs inside the frontend code with your own.
+This ensures the UI connects to your deployed token.
 
-3. Check canister ID has been successfully saved:
+After deploying, open your frontend locally:
 
-```
-echo $CANISTER_PUBLIC_KEY
-```
+dfx deploy
 
-4. Transfer half a billion tokens to the canister Principal ID:
+📖 Notes :
 
-```
-dfx canister call token transfer "($CANISTER_PUBLIC_KEY, 500_000_000)"
-```
+The frontend may appear blank until you connect it to your own canister IDs.
 
-# Deploy the Project to the Live IC Network
-
-1. Create and deploy canisters:
-
-```
-dfx deploy --network ic
-```
-
-2. Check the live canister ID:
-
-```
-dfx canister --network ic id token
-```
-
-3. Save the live canister ID to a command line variable:
-
-```
-LIVE_CANISTER_KEY="principal \"$( \dfx canister --network ic id token )\""
-```
-
-4. Check that it worked:
-
-```
-echo $LIVE_CANISTER_KEY
-```
-
-5. Transfer some tokens to the live canister:
-
-```
-dfx canister --network ic call token transfer "($LIVE_CANISTER_KEY, 50_000_000)"
-```
-
-6. Get live canister front-end id:
-
-```
-dfx canister --network ic id token_assets
-```
-
-7. Copy the id from step 6 and add .raw.ic0.app to the end to form a URL.
-   e.g. blah-blah-blah.raw.ic0.app
+This project is for learning purposes — not a production-ready token.
